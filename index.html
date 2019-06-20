@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- projet -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>carterelief.exe - GOTY REDUX Edition</title>
+        <!-- CSS lib -->
+        <link rel="stylesheet" href="node_modules/photonkit/dist/css/photon.css">
+        <link rel="stylesheet" href="node_modules/xel/themes/material.css">
+        <link rel="stylesheet" href="node_modules/material-design-icons/iconfont/material-icons.css">
+        <link rel="stylesheet" href="node_modules/materialize-css/dist/css/materialize.css">
+        <link rel="stylesheet" href="node_modules/leaflet/dist/leaflet.css">
+        <!-- CSS projet -->
+        <link rel="stylesheet" href="assets/css/main.css">
+        <!-- JS lib -->
+        <script src="node_modules/xel/xel.min.js"></script>
+        <script src="node_modules/materialize-css/dist/js/materialize.js"></script>
+        <script src="node_modules/leaflet/dist/leaflet.js">
+        </script>
+        <!-- JS projet -->
+        <script src="assets/js/arduino.js"></script>
+        <script src="assets/js/konami.js"></script>
+    </head>
+    <body>
+            <div class="window">
+                    <x-contextmenu>
+                          </x-contextmenu>
+                    <header class="toolbar toolbar-header">
+                            <nav class="white lighten-1" role="navigation">
+                                      <h1 class="title-nav brand-logo center">Pour visiter un site appuyer sur la carte.</h1>
+                                      <ul class="left">
+                                        <li><x-button class="btn-floating btn-large teal">
+                                                
+                                                <i class="material-icons">language</i>
+                                                <dialog>
+                                                        <main>
+                                                          <h3>language</h3>
+                                                          <x-card>
+                                                                <x-accordion style="width: 100%;">
+                                                                  <header>
+                                                                    <x-label>Please chose a language</x-label>
+                                                                  </header>
+                                                              
+                                                                  <main>
+                                                                        <x-radios style="width: 100%;">
+                                                                                <x-box>
+                                                                                  <x-radio id="first-radio"></x-radio>
+                                                                                  <x-label for="first-radio" id="label-1">Francais</x-label>
+                                                                                </x-box>
+                                                                                <x-box>
+                                                                                  <x-radio id="second-radio" toggled></x-radio>
+                                                                                  <x-label for="second-radio" id="label-2">Anglais</x-label>
+                                                                                </x-box>
+                                                                                <x-box>
+                                                                                  <x-radio id="third-radio"></x-radio>
+                                                                                  <x-label for="third-radio" id="label-3">Almend</x-label>
+                                                                                </x-box>
+                                                                    </x-radios>
+                                                                  </main>
+                                                                </x-accordion>
+                                                              </x-card>
+                                                            </main>
+                                                            
+        <div class="footerDiag">
+                <p class="title lite">
+                                Déveloper par Le lycée Thomas Edition pour le Musée de préhistore des Gorges du Verdon
+                </p>
+                    </div>
+                  
+                                                      </dialog>
+                                              </x-button>
+                                              
+                                              <style>
+                                                dialog {
+                                                  width: 300px;
+                                                  height: 100%;
+                                                  left: 0;
+                                                  right: auto;
+                                                }
+                                              </style></li>
+                                      </ul>
+                                  </nav>
+                    </header>
+                <div class="window-content">
+                    <!-- The Modal -->
+                                        <div id="myModal" class="modal">
+                          
+                                            <!-- Modal content -->
+                                            <div class="modal-content">
+                                              <div class="modal-header">
+                                                <h2>Musée de Préhistoire</h2>
+                                              </div>
+                                              <div class="modal-body">
+                                                <p>vous etes ici</p>
+                                                <img src="assets/img/placeholder/musee.jpg" alt="image placeholder" />
+                                              </div>
+                                              <div class="modal-footer">
+                                                <x-button class="close">
+                                                  <x-box>
+                                                    <x-icon name='close'></x-icon>
+                                                    <x-label>fermer</x-label>
+                                                  </x-box>
+                                                </x-button>
+                                              </div>
+                                            </div>
+                                          
+                                        </div>
+                                        <!-- Carte -->
+                                        <div class="map" id="mapid">
+                                        </div>
+                </div>
+                
+    <footer class="fixed-action-btn">
+        <span class="title">
+                ©2019 Musée de préhistore des Gorges du Verdon | Map data &copy; OpenStreetMap contributors CC-BY-SA Imagery © Mapbox
+        </span>
+    </footer>
+            </div>
+
+        <script>
+
+                var mymap = L.map('mapid', {attributionControl: false}).setView([43.69955, 6.03755], 18);
+                var marker = L.marker([43.69974, 6.03715]).addTo(mymap);
+                var marker2 = L.marker([43.70022, 6.03842]).addTo(mymap);
+               
+                //https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw
+                //https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png
+                //https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png
+                //https://{s}.tile.openstreetmap.se/hydda/full/{z}/{x}/{y}.png
+                //https://{s}.tile.openstreetmap.de/{z}/{x}/{y}.png
+                //https://api.mapbox.com/styles/v1/jojoto147/cjx31rf7400co1crn9jb7ckz7.html?title=true&access_token=pk.eyJ1Ijoiam9qb3RvMTQ3IiwiYSI6ImNqeDMxaW0wNzA2d2czeXRmcmV6aDkxZTEifQ.DYNLWNgkNJCe-KB-DBrjEA/draft#15.7/43.698568/6.037328/360
+                //https://api.mapbox.com/styles/v1/jojoto147/cjx31rf7400co1crn9jb7ckz7/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoiam9qb3RvMTQ3IiwiYSI6ImNqeDMxaW0wNzA2d2czeXRmcmV6aDkxZTEifQ.DYNLWNgkNJCe-KB-DBrjEA
+          
+                
+                L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+                  maxZoom: 18,
+                  prefix: '',
+                  attribution: 'Map data &copy; OpenStreetMap contributors, ' +
+                    'CC-BY-SA, ' +
+                    'Imagery © Mapbox',
+                  id: 'mapbox.streets'
+                }).addTo(mymap);
+              
+                // Get the modal
+                var modal = document.getElementById("myModal");
+                
+                // Get the <span> element that closes the modal
+                var span = document.getElementsByClassName("close")[0];
+                
+                // When the user clicks on <span> (x), close the modal
+                span.onclick = function() {
+                  modal.style.display = "none";
+                }
+                
+                // When the user clicks anywhere outside of the modal, close it
+                window.onclick = function(event) {
+                  if (event.target == modal) {
+                    modal.style.display = "none";
+                  }
+                }
+      
+                function onMapClick(e) {
+                  modal.style.display = "block";
+                  }
+      
+                  marker.on('click', onMapClick);
+      
+              </script>
+    </body>
+</html>

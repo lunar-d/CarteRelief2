@@ -1,0 +1,23 @@
+{
+  "name": "carterelief2",
+  "version": "0.0.1",
+  "description": "CarteRelief2 est un projet visant de restauration d’une ancienne borne au 'Musée de Préhistoire des gorges du Verdon' qui tournait sous Windows 98.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --debug"
+  },
+  "repository": "https://github.com/lunar-d/CarteRelief2",
+  "author": "Lycée Thomas Edition (Giaccone-Rémi)",
+  "license": "MIT",
+  "dependencies": {
+    "electron": "^5.0.4",
+    "leaflet": "^1.5.1",
+    "leaflet.offline": "^1.0.4",
+    "localforage": "^1.7.3",
+    "material-design-icons": "^3.0.1",
+    "materialize-css": "^1.0.0",
+    "photonkit": "^0.1.2",
+    "xel": "^0.0.203"
+  }
+}
