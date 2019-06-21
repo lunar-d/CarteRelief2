@@ -5,19 +5,28 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "dev": "electron . --debug"
+    "dev": "electron . --debug",
+    "install": "electron-rebuild"
   },
-  "repository": "https://github.com/lunar-d/CarteRelief2",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:lunar-d/CarteRelief2.git"
+  },
   "author": "Lycée Thomas Edition (Giaccone-Rémi)",
   "license": "MIT",
   "dependencies": {
     "electron": "^5.0.4",
+    "johnny-five": "^1.1.0",
     "leaflet": "^1.5.1",
     "leaflet.offline": "^1.0.4",
     "localforage": "^1.7.3",
     "material-design-icons": "^3.0.1",
     "materialize-css": "^1.0.0",
     "photonkit": "^0.1.2",
+    "serialport": "^7.1.5",
     "xel": "^0.0.203"
+  },
+  "devDependencies": {
+    "electron-rebuild": "^1.8.5"
   }
 }
