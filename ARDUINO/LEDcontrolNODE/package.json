@@ -1,0 +1,15 @@
+{
+  "name": "ledcontrolnode",
+  "version": "0.0.1",
+  "description": "serveur web de test pour controle des leds du arduino",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ."
+  },
+  "author": "luar-d",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "serialport": "^7.1.5"
+  }
+}
