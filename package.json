@@ -15,7 +15,7 @@
   "author": "Lycée Thomas Edition (Giaccone-Rémi)",
   "license": "MIT",
   "dependencies": {
-    "electron": "^5.0.4",
+    "electron": "^11.5.0",
     "johnny-five": "^1.1.0",
     "leaflet": "^1.5.1",
     "leaflet.offline": "^1.0.4",
